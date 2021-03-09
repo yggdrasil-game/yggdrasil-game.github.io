@@ -2,25 +2,16 @@ const demoDisk = {
   equippedMask: null,
   roomId: 'yggdrasilCenter', // the ID of the room the player starts in
   rooms: [
-    yggdrasil,
-    smallPath,
-    clearing,
-    forestPath,
-    insideTheForest,
-    dirtRoad,
-    towerFront,
-    {
-      id: 'secondFloorEntrance',
-      name: 'Second Floor Entrance',
-      desc: 'Something something',
-      onLook: () => {
-        const room = getRoom('secondFloorEntrance')
-        room.desc = `Something Something`
-      },
-      exits: [
-        { dir: 'down', id: 'entranceHall' },
-      ]
-    },
+    // yggdrasil
+    yggdrasilCenter,
+    yggdrasilNorth,
+    yggdrasilSouth,
+    // midgard
+    midgardCenter,
+    midgardNorth,
+    // muspelheim
+    muspelheimCenter,
+    muspelheimNorthwest,
   ],
   characters: [
     sageWizard,

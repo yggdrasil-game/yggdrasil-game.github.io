@@ -1,25 +1,68 @@
-const yggdrasil = {
+const yggdrasilCenter = {
     id: 'yggdrasilCenter',
     name: 'Enormous Tree',
-    desc: `You are standing on an enormous tree branch high above the clouds. The branches strech out in every direction.
-      
-    <i>You can see the available directions with the **GO** command</i>`,
-    exits: [{ dir: 'north', id: 'smallPath' }],
+    desc: `You are standing on an enormous tree branch high in the sky. The wide branches strech out in every direction.
+    
+    <i>You can investigate your surroundings with the **look** command.</i>
+    <i>You can see the available directions with the **go** command.</i>`,
+    onLook: () => {
+        const room = getRoom('yggdrasilCenter')
+        room.desc = 'There\'s a stone **well** etched into the tree branch. It feels peculiarly nostalgic. The water in the **well** is glimmering with faint light.'
+    },
+    items: [
+        {
+            name: 'well',
+            desc: 'The stone well is of moderate quality. There\'s a ᛗ symbol carved into the stone.'
+        }
+    ],
+    exits: [
+        { dir: 'down', id: 'midgardCenter' },
+        { dir: 'north', id: 'yggdrasilNorth' },
+        { dir: 'south', id: 'yggdrasilSouth' },
+    ],
 }
 
-const smallPath = {
-    id: 'smallPath',
-    name: 'Small Path',
-    desc: `You walk down the hill following a small serpentine path.
+const yggdrasilNorth = {
+    id: 'yggdrasilNorth',
+    name: 'North Branch',
+    desc: `As you walk north the heavy branch under your feet slopes downwards. The branch starts to vibrate with cold energy.
     
-    <i>You just arrived at a new place, Small Path. You can list all the available directions from this place by typing only **GO** ("go").</i>`,
+    <i>You can investigate your surroundings with the **look** command.</i>`,
     onLook: () => {
-        const room = getRoom('smallPath')
-        room.desc = 'The path is narrow. Wild weeds will eventually cover the whole path.'
+        const room = getRoom('yggdrasilNorth')
+        room.desc = 'There\'s a deep **well** in front of you. It seems to lead underground.'
     },
+    items: [
+        {
+            name: 'well',
+            desc: 'The well is filled with icy white fog. It is quite rebarbative.'
+        }
+    ],
     exits: [
-        { dir: 'north', id: 'clearing' },
-        { dir: 'south', id: 'hilltop' },
+        { dir: 'south', id: 'yggdrasilCenter' },
+        { dir: 'down', id: 'helCenter', block: 'The icy fog in the well is unforgivingly cold. It seems impenetrable.' },
+    ],
+}
+
+const yggdrasilSouth = {
+    id: 'yggdrasilSouth',
+    name: 'South Branch',
+    desc: `As you walk south the branch starts to heat up gradually under your feet. The tree bark radiates with heat.
+    
+    <i>You can investigate your surroundings with the **look** command.</i>`,
+    onLook: () => {
+        const room = getRoom('yggdrasilSouth')
+        room.desc = 'The bark radiates with heat under your feet. A large **doorway** stands before you to the south.'
+    },
+    items: [
+        {
+            name: 'doorway',
+            desc: 'The doorway seems ancient. Its hinges are made of molten rock and it glows intimidatingly red.'
+        }
+    ],
+    exits: [
+        { dir: 'north', id: 'yggdrasilCenter' },
+        { dir: 'south', id: 'muspelheimCenter' },
     ],
 }
 

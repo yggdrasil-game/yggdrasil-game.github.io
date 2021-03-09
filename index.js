@@ -111,7 +111,8 @@ let inv = () => {
     return
   }
 
-  println(`You have the following items in your inventory:`)
+  println(`<i>You can use or equip items with the **use** command.</i>
+  You have the following items in your inventory:`)
   disk.inventory.forEach(item => {
     println(`${bullet} ${getName(item.name)}`)
   })
@@ -130,7 +131,9 @@ let look = () => {
 
 // look in the passed way
 // string -> nothing
-let lookThusly = str => println(`You look ${str}.`)
+let lookThusly = str => println(`You look ${str}.
+
+<i>You can look at things with the **look at** command.</i>`)
 
 // look at the passed item or character
 // array -> nothing
@@ -874,7 +877,7 @@ let enterRoom = id => {
   const room = getRoom(id)
 
   if (!room) {
-    println(`That exit doesn't seem to go anywhere.`)
+    println(`There\'s nothing in that direction.`)
     return
   }
 

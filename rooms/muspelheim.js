@@ -1,9 +1,7 @@
 const muspelheimCenter = {
     id: 'muspelheimCenter',
     name: 'Firestorm',
-    desc: `You go through the doorway and a fiery storm hits your face as you enter into a land of fire and smoke.
-    
-    <i>You can investigate your surroundings with the **look** command.</i>`,
+    desc: `You go through the doorway and a fiery storm hits your face as you enter into a land of fire and smoke.`,
     onLook: () => {
         const room = getRoom('muspelheimCenter')
         room.desc = 'Flames circle around you leaving scorch marks all over your clothes. You can\'t stay here for long. There\'s a small cave to the northwest.'
@@ -17,7 +15,7 @@ const muspelheimCenter = {
 const muspelheimNorthwest = {
     id: 'muspelheimNorthwest',
     name: 'Small Cave',
-    desc: `You enter a small cave. The flames don\'t reach here.`,
+    desc: `You enter the cave. There is not much room but the flames don\'t reach here.`,
     onLook: () => {
         const room = getRoom('muspelheimNorthwest')
         room.desc = 'The cave is dimly lit. The air is hot but not scorching. There\'s a **red cloak** on the ground.'
